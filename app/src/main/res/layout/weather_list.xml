@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_weight="0.06"
+        android:text="date"
+        android:textSize="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:id="@+id/tv_hightemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="high"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView8" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:id="@+id/tv_lowtemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="low"
+        android:layout_marginStart="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_weather" />
+
+    <TextView
+        android:gravity="center"
+        android:textSize="20dp"
+        android:id="@+id/tv_weather"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="weather"
+        android:layout_marginStart="11dp"
+        android:layout_alignBaseline="@+id/textView8"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_toEndOf="@+id/tv_date" />
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/textView8"
+        android:layout_width="20dp"
+        android:layout_height="30dp"
+        android:text="~~"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_lowtemperature" />
+</RelativeLayout>
