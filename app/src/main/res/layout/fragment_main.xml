@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v4.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/main_tv_date"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginTop="25dp"
+                    android:text="date"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="34dp"
+                    android:layout_below="@+id/main_tv_temperature"
+                    android:layout_toStartOf="@+id/main_tv_temperature" />
+
+                <TextView
+                    android:id="@+id/main_tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/main_srl_update"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="31dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="21dp"
+                    android:text="time"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_tv_weather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/main_tv_date"
+                    android:layout_alignBottom="@+id/main_tv_date"
+                    android:layout_alignEnd="@+id/main_tv_temperature"
+                    android:text="weather"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_tv_countryname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/main_tv_temperature"
+                    android:layout_marginEnd="55dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_toStartOf="@+id/main_tv_temperature"
+                    android:text="name"
+                    android:textColor="#000000"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/main_tv_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/main_srl_update"
+                    android:layout_below="@+id/main_tv_time"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:text="high"
+                    android:textColor="#000000"
+                    android:textSize="60sp" />
+
+                <android.support.v4.widget.SwipeRefreshLayout
+                    android:id="@+id/main_srl_update"
+                    android:layout_width="450dp"
+                    android:layout_height="178dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="200dp">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/main_rv_weather"
+                        android:layout_width="450dp"
+                        android:layout_height="178dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="200dp" />
+                </android.support.v4.widget.SwipeRefreshLayout>
+            </RelativeLayout>
+
+            <include layout="@layout/fragment_suggestion"
+                android:layout_height="221dp" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</FrameLayout>

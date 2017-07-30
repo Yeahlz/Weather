@@ -1,16 +1,15 @@
-package utils;
+package com.example.administrator.weatherapplication3.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
+
+import com.example.administrator.weatherapplication3.databean.CountryWeatherData;
+import com.example.administrator.weatherapplication3.databean.LocationData;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import databean.CountryData;
-import databean.LocationData;
 
 
 /**
@@ -52,8 +51,8 @@ public class JSONUtil {
         return CountryDataList;
     }
 
-    public List<CountryData> weatherDataJsonUtil(String response) {
-        List<CountryData>weatherDatalist = new ArrayList<>();
+    public List<CountryWeatherData> weatherDataJsonUtil(String response) {
+        List<CountryWeatherData>weatherDatalist = new ArrayList<>();
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONObject jsonObject = new JSONObject(response);
@@ -63,21 +62,20 @@ public class JSONUtil {
                 JSONArray jsonArray1 = jsonObject1.getJSONArray("daily_forecast");
                 JSONObject jsonObject5 = jsonObject1.getJSONObject("suggestion");
                 for (int i=0;i<3;i++) {
-                    CountryData countryData = new CountryData();
+                    CountryWeatherData countryWeatherData = new CountryWeatherData();
                     JSONObject jsonObject2 = jsonArray1.getJSONObject(i);
-                    countryData.setDate(jsonObject2.getString("date"));
+                    countryWeatherData.setDate(jsonObject2.getString("date"));
                     JSONObject jsonObject6 = jsonObject5.getJSONObject("sport");
                     JSONObject jsonObject7 = jsonObject5.getJSONObject("flu");
-                    countryData.setFlu(jsonObject7.getString("txt"));
-                    countryData.setSport(jsonObject6.getString("txt"));
-                    countryData.setCityName(jsonObject8.getString("city"));
-                    Log.d("AAAA", countryData.getDate());
+                    countryWeatherData.setFlu(jsonObject7.getString("txt"));
+                    countryWeatherData.setSport(jsonObject6.getString("txt"));
+                    countryWeatherData.setCityName(jsonObject8.getString("city"));
                     JSONObject jsonObject4 =jsonObject2.getJSONObject("cond");
-                    countryData.setWeather(jsonObject4.getString("txt_d"));
+                    countryWeatherData.setWeather(jsonObject4.getString("txt_d"));
                     JSONObject jsonObject3 = jsonObject2.getJSONObject("tmp");
-                    countryData.setHighTemperature(jsonObject3.getString("max"));
-                    countryData.setLowTemperature(jsonObject3.getString("min"));
-                    weatherDatalist.add(countryData);
+                    countryWeatherData.setHighTemperature(jsonObject3.getString("max"));
+                    countryWeatherData.setLowTemperature(jsonObject3.getString("min"));
+                    weatherDatalist.add(countryWeatherData);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

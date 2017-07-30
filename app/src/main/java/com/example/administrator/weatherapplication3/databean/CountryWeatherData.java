@@ -1,15 +1,21 @@
-package databean;
+package com.example.administrator.weatherapplication3.databean;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by Administrator on 2017/7/15.
  */
 
-public class CountryData{   //城市天气数据
+public class CountryWeatherData {   //城市天气数据
     private  String date ;
+    @SerializedName("txt")
     private  String weather;
+    @SerializedName("max")
     private  String highTemperature;
+    @SerializedName("min")
     private  String lowTemperature;
     private  String sport;
+    @SerializedName("city")
     private  String cityName;
 
     public String getCityName() {
